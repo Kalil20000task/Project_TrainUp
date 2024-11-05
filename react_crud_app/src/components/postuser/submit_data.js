@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Form, Button, Container, Row, Col } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 
 const RegistrationForm = () => {
   const [formData, setFormData] = useState({
@@ -9,6 +10,10 @@ const RegistrationForm = () => {
     country: '',
     course: '',
   });
+
+  const navigate=useNavigate();
+
+
 
   const countries = ["Select Country", "United States", "Canada", "United Kingdom", "Australia"];
   const courses = ["Select Course", "Web Development", "Data Science", "AI and Machine Learning", "Cyber Security"];
@@ -25,7 +30,24 @@ const RegistrationForm = () => {
     e.preventDefault();
     console.log("Form submitted:", formData);
     // Add form submission logic here
-  };
+
+    try{
+      const response= await fetch("http://localhost:5000/api/user",{
+        method: "POST",
+        headers:{
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(formData)
+      })
+      const data=await response.json(response);
+      console.log(data);
+      navigate("/")
+    }
+    catch(error){
+      console.error("error.message");
+
+    }
+  }
 
   return (
     <Container className="d-flex justify-content-center align-items-center min-vh-100" >

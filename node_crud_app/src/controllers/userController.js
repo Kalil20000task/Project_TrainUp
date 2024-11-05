@@ -2,8 +2,8 @@ const UserService= require("../services/userservice");
 class userController{
     async createUser(req,res){
         try{
-            const {name,email,phone,country,courselist}=req.body;
-            const saveUser= await UserService.createUser(name,email,phone,country,courselist);
+            const {fullName,telephone,email,country,course}=req.body;
+            const saveUser= await UserService.createUser(fullName,telephone,email,country,course);
             res.json(saveUser);
         }
         catch(error){

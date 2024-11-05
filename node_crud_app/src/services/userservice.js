@@ -1,7 +1,7 @@
 const User=require('../model/user');
 class Userservice{
-    async createUser(name,email,phone,country,courselist){
-        const newUser= new User ({name,email,phone,country,courselist})
+    async createUser(fullName,telephone,email,country,course){
+        const newUser= new User ({fullName,telephone,email,country,course})
         return await newUser.save();
     }
 } ;

@@ -1,10 +1,11 @@
 const mongoose= require("../configuration/dbconfig");
 const userSchema= new mongoose.Schema({
-    name: String,
+    fullName: String,
     email: String,
-    phone : String,
+    telephone : String,
     country: String,
-    courselist: String
+    course: String
+   
 });
 
 const User=mongoose.model("User",userSchema);
