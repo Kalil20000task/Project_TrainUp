@@ -8,7 +8,8 @@ import Update from './components/manageuser/update';
 import Header from './components/header/header';
 import RegistrationForm from './components/postuser/submit_data';
 import AboutUs from './components/aboutus/aboutus';
-import Table from './components/table/table';
+import FetchUsers from './components/table/table';
+import './i18n';
 function App() {
   return (
     // <div className="App">
@@ -27,7 +28,7 @@ function App() {
       <Route path='/update' element={<Update></Update>}></Route>
       <Route path='/about_us' element={<AboutUs></AboutUs>}></Route>
       <Route path='/register_user' element={<RegistrationForm></RegistrationForm>}></Route>
-      <Route path='/table' element={<Table></Table>}></Route>
+      <Route path='/table' element={<FetchUsers></FetchUsers>}></Route>
       
       
     </Routes>
