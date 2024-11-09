@@ -5,10 +5,13 @@ import { Route, Routes } from 'react-router-dom';
 import Dashboard from './components/dashboard/dashboard';
 import Nomatch from './components/nomatch/nomatch';
 import Update from './components/manageuser/update';
-import Header from './components/header/header';
+import Header from './components/header/homeheader';
+import LoginHeader from './components/header/loginheader';
 import RegistrationForm from './components/postuser/submit_data';
 import AboutUs from './components/aboutus/aboutus';
 import FetchUsers from './components/table/table';
+import SignUp from './components/postuser/signuppage';
+import Login from './components/postuser/loginpage';
 import './i18n';
 function App() {
   return (
@@ -20,7 +23,7 @@ function App() {
 
     // </div>,
     <>
-    <Header></Header>
+    <LoginHeader></LoginHeader>
 
     <Routes>
       <Route path='/' element={<Dashboard></Dashboard>}></Route>
@@ -28,7 +31,8 @@ function App() {
       <Route path='/update' element={<Update></Update>}></Route>
       <Route path='/about_us' element={<AboutUs></AboutUs>}></Route>
       <Route path='/register_user' element={<RegistrationForm></RegistrationForm>}></Route>
-      <Route path='/table' element={<FetchUsers></FetchUsers>}></Route>
+      <Route path='/signup' element={<SignUp></SignUp>}></Route>
+      <Route path='/login' element={<Login></Login>}></Route>
       
       
     </Routes>

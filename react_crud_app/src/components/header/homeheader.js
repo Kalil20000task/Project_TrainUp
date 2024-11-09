@@ -9,14 +9,14 @@ const Header=() =>{
  return(
    <Navbar expand="lg" bg="dark" data-bs-theme="dark" className="bg-body-tertiary">
    <Container>
-     <Navbar.Brand  as={Link} to="/">Train Up Institute</Navbar.Brand>
+     <Navbar.Brand className="nav-brand"  as={Link} to="/">Train Up Institute</Navbar.Brand>
      <Navbar.Toggle aria-controls="basic-navbar-nav" />
      <Navbar.Collapse id="basic-navbar-nav">
        <Nav className="ml-auto">
          <Nav.Link as={Link} className='nav-link' to="/" >Home</Nav.Link>
-         <Nav.Link as={Link} className='nav_link' to="/about_us">About Us</Nav.Link>
-         <Nav.Link as={Link} className='nav_link' to="/register_user">Register</Nav.Link>
-         <Nav.Link as={Link} className='nav_link' to="/table">Table</Nav.Link>
+         <Nav.Link as={Link} className='nav-link' to="/about_us">About Us</Nav.Link>
+         <Nav.Link as={Link} className='nav-link' to="/register_user">Register</Nav.Link>
+         <Nav.Link as={Link} className='nav-link' to="/table">Table</Nav.Link>
          
          {/* <Nav.Link href="#link">Link</Nav.Link> */}
          <NavDropdown title="Dropdown" id="basic-nav-dropdown">
