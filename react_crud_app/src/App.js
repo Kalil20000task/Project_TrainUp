@@ -33,6 +33,7 @@ function App() {
       <Route path='/register_user' element={<RegistrationForm></RegistrationForm>}></Route>
       <Route path='/signup' element={<SignUp></SignUp>}></Route>
       <Route path='/login' element={<Login></Login>}></Route>
+      <Route path='/table' element={<FetchUsers></FetchUsers>}></Route>
       
       
     </Routes>
