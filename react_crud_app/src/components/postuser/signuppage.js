@@ -101,7 +101,7 @@ const SignUp = () => {
                                     onChange={handleChange}
                                     required
                                 >
-                                    <option value="normal user">Normal User</option>
+                                    {/* <option value="normal user">Normal User</option> */}
                                     <option value="admin">Admin</option>
                                     <option value="editor">Editor</option>
                                 </Form.Select>

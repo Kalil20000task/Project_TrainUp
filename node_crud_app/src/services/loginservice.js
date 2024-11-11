@@ -1,23 +1,26 @@
-const User= require("../model/signupmodel");
-const bcrypt= require("bcrypt");
-const {generateToken}= require("../utils/utils");
+const bcrypt = require("bcrypt");
+const User = require("../model/signupmodel");
+const { generateToken } = require("../utils/utils");
 
- async function loginuser(username,password) {
-    try{
-       const existinguser= await User.findOne({username})
-       if(!existinguser){
-        throw new Error("No user with the given username! ");
-       }
-       const ispasswordvalid=bcrypt.compare(password,existinguser.password)
-       if(!ispasswordvalid){
-        throw new Error("No user with the given password! ");
-       }
-       const token=generateToken(existinguser);
-       return token;
+async function loginuser(username, password) {
+  try {
+    const existinguser = await User.findOne({ username });
+    if (!existinguser) {
+      throw new Error("No user with the given username!");
     }
-    catch(error){
-        throw new Error("Invalid credentials");
 
+    // Await the bcrypt comparison to correctly check the password
+    const ispasswordvalid = await bcrypt.compare(password, existinguser.password);
+
+    if (!ispasswordvalid) {
+      throw new Error("Incorrect password!");
     }
- }
-module.exports={loginuser};
+
+    const token = generateToken(existinguser);
+    return token;
+  } catch (error) {
+    throw new Error("Invalid credentials");
+  }
+}
+
+module.exports = { loginuser };

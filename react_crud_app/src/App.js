@@ -23,7 +23,7 @@ function App() {
 
     // </div>,
     <>
-    <LoginHeader></LoginHeader>
+    <Header></Header>
 
     <Routes>
       <Route path='/' element={<Dashboard></Dashboard>}></Route>
