@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Form, Button, Container, Row, Col } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
+import logo from '../images/logowhite.png'; // Make sure to adjust this path
 
 const SignUp = () => {
     const [formData, setFormData] = useState({
@@ -9,7 +10,7 @@ const SignUp = () => {
         password: '',
         role: 'normal user'
     });
-    const navigate=useNavigate();
+    const navigate = useNavigate();
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -22,43 +23,37 @@ const SignUp = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         console.log("Form submitted:", formData);
-        // Add form submission logic here
     
-        // const currentDate = new Date().toISOString().split('T')[0]; // Gets current date in YYYY-MM-DD format
-    
-        // const formDataToSubmit = {
-        //   ...formData,
-        // //   course: formData.course.join(', '), // Convert array to comma-separated string
-        // //   date: currentDate,
-        // };
-    
-        try{
-          const response= await fetch("http://localhost:5000/api/signusers",{
-            method: "POST",
-            headers:{
-              "Content-Type": "application/json"
-            },
-            body: JSON.stringify(formData)
-          })
-          const data=await response.json(response);
-          console.log(data);
-          navigate("/dashboard")
+        try {
+            const response = await fetch("http://localhost:5000/api/signusers", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(formData)
+            });
+            const data = await response.json();
+            console.log(data);
+            navigate("/");
+        } catch (error) {
+            console.error("error.message");
         }
-        catch(error){
-          console.error("error.message");
-    
-        }
-      }
+    };
 
     return (
         <Container fluid className="d-flex justify-content-center align-items-center vh-100 bg-light">
             <Row className="w-100">
-                <Col md={{ span: 4, offset: 4 }}>
-                    <div className="p-4 rounded bg-white shadow">
-                        <h3 className="text-center mb-4">Sign Up</h3>
+                <Col md={{ span: 6, offset: 3 }}> {/* Widened the form */}
+                    <div className="p-5 rounded bg-white shadow">
+                        {/* Logo at the top of the form */}
+                        <div className="text-center mb-4">
+                            <img src={logo} alt="Logo" className="img-fluid" style={{ maxWidth: '150px' }} />
+                        </div>
+                        
+                        <h3 className="text-center mb-4 text-black">Sign Up</h3>
                         <Form onSubmit={handleSubmit}>
                             <Form.Group controlId="fullname" className="mb-3">
-                                <Form.Label>Full Name</Form.Label>
+                                <Form.Label className="text-black">Full Name</Form.Label>
                                 <Form.Control
                                     type="text"
                                     placeholder="Enter your full name"
@@ -66,11 +61,12 @@ const SignUp = () => {
                                     value={formData.fullname}
                                     onChange={handleChange}
                                     required
+                                    style={{ backgroundColor: '#e0f7fa' }} // Very light blue input fields
                                 />
                             </Form.Group>
 
                             <Form.Group controlId="username" className="mb-3">
-                                <Form.Label>Username</Form.Label>
+                                <Form.Label className="text-black">Username</Form.Label>
                                 <Form.Control
                                     type="text"
                                     placeholder="Enter your username"
@@ -78,11 +74,12 @@ const SignUp = () => {
                                     value={formData.username}
                                     onChange={handleChange}
                                     required
+                                    style={{ backgroundColor: '#e0f7fa' }}
                                 />
                             </Form.Group>
 
                             <Form.Group controlId="password" className="mb-3">
-                                <Form.Label>Password</Form.Label>
+                                <Form.Label className="text-black">Password</Form.Label>
                                 <Form.Control
                                     type="password"
                                     placeholder="Enter your password"
@@ -90,24 +87,24 @@ const SignUp = () => {
                                     value={formData.password}
                                     onChange={handleChange}
                                     required
+                                    style={{ backgroundColor: '#e0f7fa' }}
                                 />
                             </Form.Group>
 
                             <Form.Group controlId="role" className="mb-4">
-                                <Form.Label>Role</Form.Label>
+                                <Form.Label className="text-black">Role</Form.Label>
                                 <Form.Select
                                     name="role"
                                     value={formData.role}
                                     onChange={handleChange}
                                     required
                                 >
-                                    {/* <option value="normal user">Normal User</option> */}
                                     <option value="admin">Admin</option>
                                     <option value="editor">Editor</option>
                                 </Form.Select>
                             </Form.Group>
 
-                            <Button variant="primary" type="submit" className="w-100">
+                            <Button variant="warning" type="submit" className="w-100"> {/* Orange button */}
                                 Sign Up
                             </Button>
                         </Form>

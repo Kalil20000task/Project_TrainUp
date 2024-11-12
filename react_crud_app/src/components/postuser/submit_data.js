@@ -1,9 +1,10 @@
-import React, {useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Form, Button, Container, Row, Col } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import { getNames } from 'country-list';
 import Select from 'react-select';
 import { useTranslation } from 'react-i18next';
+import logo from '../images/logowhite.png'; 
 
 const RegistrationForm = () => {
   const { t, i18n } = useTranslation(); // Import translation hook
@@ -16,8 +17,7 @@ const RegistrationForm = () => {
     date: { type: Date, default: Date.now }
   });
 
-  const navigate=useNavigate();
-
+  const navigate = useNavigate();
 
   const [countries, setCountries] = useState([]);
   // const countries = ["Select Country", "United States", "Canada", "United Kingdom", "Australia"];
@@ -33,26 +33,28 @@ const RegistrationForm = () => {
     { label: "IT (Information Technology)", value: "IT (Information Technology)" },
     { label: "Business Administration", value: "Business Administration" },
   ];
+
   useEffect(() => {
     setCountries(['Select Country', ...getNames()]); // Get all country names and add "Select Country" as the first option
   }, []);
+
   const handleChange = (e) => {
     const { name, value, options } = e.target;
     if (name === "course") {
       const selectedCourses = Array.from(options)
         .filter(option => option.selected)
         .map(option => option.value);
-      
+
       setFormData((prevData) => ({
         ...prevData,
         [name]: selectedCourses, // Update to store all selected courses
       }));
     } else {
-    setFormData((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
-   }
+      setFormData((prevData) => ({
+        ...prevData,
+        [name]: value,
+      }));
+    }
   };
 
   const handleCourseChange = (selectedOptions) => {
@@ -80,32 +82,34 @@ const RegistrationForm = () => {
       date: currentDate,
     };
 
-    try{
-      const response= await fetch("http://localhost:5000/api/user",{
+    try {
+      const response = await fetch("http://localhost:5000/api/user", {
         method: "POST",
-        headers:{
+        headers: {
           "Content-Type": "application/json"
         },
         body: JSON.stringify(formDataToSubmit)
       })
-      const data=await response.json(response);
+      const data = await response.json(response);
       console.log(data);
-      navigate("/table")
+      navigate("/table");
     }
-    catch(error){
+    catch (error) {
       console.error("error.message");
-
     }
-  }
+  };
 
   return (
-    <Container className="d-flex justify-content-center align-items-center min-vh-100" >
-     <div className="p-4 rounded shadow-lg" style={{ maxWidth: '900px', backgroundColor: '#333', color: '#fff' }}>
-     <div className="text-end mb-2">
+    <Container className="d-flex justify-content-center align-items-center min-vh-100">
+      <div className="p-4 rounded shadow-lg" style={{ maxWidth: '1200px', backgroundColor: '#fff', color: '#000', width:'50%' }}>
+        <div className="text-end mb-2">
           <button onClick={() => handleLanguageChange('en')}>English</button>
           <button onClick={() => handleLanguageChange('ti')}>Tigrinya</button>
         </div>
-        <h2 className="mb-4 text-center">{t('Course Registration Form')}</h2>
+        <div className="text-center mb-4">
+                            <img src={logo} alt="Logo" className="img-fluid" style={{ maxWidth: '150px' }} />
+        </div>
+        <h2 className="mb-4 text-center" style={{  color: 'orange'  }}>{t('Course Registration Form')}</h2>
         <Form onSubmit={handleSubmit}>
           <Form.Group className="mb-3" controlId="formFullName">
             <Form.Label>{t('Full Name')}</Form.Label>
@@ -116,12 +120,13 @@ const RegistrationForm = () => {
               value={formData.fullName}
               onChange={handleChange}
               required
-              className="bg-white text-dark"
+              className="bg-lightblue text-dark"
+              style={{ backgroundColor: '#e0f7fa' }} // Very light blue input fields
             />
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="formTelephone">
-          <Form.Label>{t('Telephone')}</Form.Label>
+            <Form.Label>{t('Telephone')}</Form.Label>
             <Form.Control
               type="tel"
               placeholder="Enter telephone number"
@@ -129,12 +134,13 @@ const RegistrationForm = () => {
               value={formData.telephone}
               onChange={handleChange}
               required
-               className="bg-white text-dark"
+              className="bg-lightblue text-dark"
+              style={{ backgroundColor: '#e0f7fa' }} // Very light blue input fields
             />
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="formEmail">
-          <Form.Label>{t('Email Address')}</Form.Label>
+            <Form.Label>{t('Email Address')}</Form.Label>
             <Form.Control
               type="email"
               placeholder="Enter email"
@@ -142,36 +148,20 @@ const RegistrationForm = () => {
               value={formData.email}
               onChange={handleChange}
               required
-               className="bg-white text-dark"
+              className="bg-lightblue text-dark"
+              style={{ backgroundColor: '#e0f7fa' }} // Very light blue input fields
             />
           </Form.Group>
 
-          {/* <Form.Group className="mb-3" controlId="formCountry">
-            <Form.Label>Country</Form.Label>
-            <Form.Select
-              name="country"
-              value={formData.country}
-              onChange={handleChange}
-              required
-               className="bg-white text-dark"
-            >
-              {countries.map((country, index) => (
-                <option key={index} value={country}>
-                  {country}
-                </option>
-              ))}
-              
-            </Form.Select>
-          </Form.Group> */}
-
           <Form.Group className="mb-3" controlId="formCountry">
-          <Form.Label>{t('Country')}</Form.Label>
+            <Form.Label>{t('Country')}</Form.Label>
             <Form.Select
               name="country"
               value={formData.country}
               onChange={handleChange}
               required
-              className="bg-white text-dark"
+              className="bg-lightblue text-dark"
+              style={{ backgroundColor: '#e0f7fa' }} // Very light blue input fields
             >
               {countries.map((country, index) => (
                 <option key={index} value={country}>
@@ -182,7 +172,7 @@ const RegistrationForm = () => {
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="formCourse">
-          <Form.Label>{t('Course List')}</Form.Label>
+            <Form.Label >{t('Course List')}</Form.Label>
             <Select
               isMulti
               options={courses}
@@ -190,12 +180,12 @@ const RegistrationForm = () => {
               onChange={handleCourseChange}
               className="text-dark"
               placeholder="Select courses"
+              style={{ backgroundColor: '#e0f7fa' }} // Very light blue input fields
             />
           </Form.Group>
 
-
-          <Button variant="primary" type="submit" className="w-100 mt-3">
-          {t('Register')}
+          <Button variant="warning" type="submit" className="w-100 mt-3">
+            {t('Register')}
           </Button>
         </Form>
       </div>
@@ -204,4 +194,3 @@ const RegistrationForm = () => {
 };
 
 export default RegistrationForm;
-

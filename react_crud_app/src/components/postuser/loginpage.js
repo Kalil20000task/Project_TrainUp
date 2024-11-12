@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Form, Button, Container, Row, Col, Alert } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
-
+import logo from '../images/logowhite.png';
 const Login = () => {
     const [formData, setFormData] = useState({
         username: '',
@@ -44,7 +44,7 @@ const Login = () => {
             localStorage.setItem('token', data.token);
 
             // Navigate to the home page or dashboard on successful login
-            navigate("/dashboard");
+            navigate("/");
 
         } catch (error) {
             console.error("Login error:", error.message);
@@ -56,8 +56,13 @@ const Login = () => {
         <Container fluid className="d-flex justify-content-center align-items-center vh-100 bg-light">
             <Row className="w-100">
                 <Col md={{ span: 4, offset: 4 }}>
-                    <div className="p-4 rounded bg-white shadow">
-                        <h3 className="text-center mb-4">Login</h3>
+                    <div className="p-4 rounded shadow-lg" style={{ maxWidth: '1200px', width: '100%', backgroundColor: '#fff' }}>
+                        {/* Add Logo at the Top */}
+                        <div className="text-center mb-4">
+                            <img src={logo} alt="Logo" className="img-fluid" style={{ maxWidth: '150px' }} />
+                        </div>
+
+                        <h3 className="text-center mb-4" style={{ color: '#333' }}>Login</h3>
                         {error && <Alert variant="danger">{error}</Alert>} {/* Error message display */}
                         <Form onSubmit={handleSubmit}>
                             <Form.Group controlId="username" className="mb-3">
@@ -69,6 +74,11 @@ const Login = () => {
                                     value={formData.username}
                                     onChange={handleChange}
                                     required
+                                    style={{
+                                        backgroundColor: '#e0f7fa', // Light blue background for input fields
+                                        border: '1px solid #ccc',
+                                        color: '#333'
+                                    }}
                                 />
                             </Form.Group>
 
@@ -81,10 +91,20 @@ const Login = () => {
                                     value={formData.password}
                                     onChange={handleChange}
                                     required
+                                    style={{
+                                        backgroundColor: '#e0f7fa', // Light blue background for input fields
+                                        border: '1px solid #ccc',
+                                        color: '#333'
+                                    }}
                                 />
                             </Form.Group>
 
-                            <Button variant="primary" type="submit" className="w-100">
+                            <Button 
+                                variant="warning" // Orange-like color for the button
+                                type="submit" 
+                                className="w-100 mt-3"
+                                style={{ backgroundColor: '#ff9800', borderColor: '#ff9800' }} // Custom orange color for button
+                            >
                                 Login
                             </Button>
                         </Form>
