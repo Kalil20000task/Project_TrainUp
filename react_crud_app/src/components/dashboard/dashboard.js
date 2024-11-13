@@ -4,12 +4,14 @@ import { Container, Row, Col, Card } from 'react-bootstrap';
 import logo from '../images/logowhite.png'; // Adjust path to your logo
 import logob from '../images/logoblack.png';
 import acfn from '../images/acfn.jpeg';
-import it from '../images/it.jpeg';
+import computerprogramming from '../images/computerprogramming.jpeg';
 // import acfn from '../images/acfn.jpg';
 import nusrsing from '../images/nursing.jpeg';
 import automechanics from '../images/automechanics.jpeg';
 import digitalmarketing from '../images/digitalmarketing.jpeg';
 import english from '../images/english.jpeg';
+import plumbing from '../images/plumbing.jpeg';
+import ielts from '../images/ielts.jpeg';
 
 
 // Adjust paths to your course images
@@ -45,7 +47,7 @@ const Dashboard = () => {
       <section className="section-two py-5">
         <h2 className="section-title text-center mb-4">We Have More Than 20 Courses</h2>
         <Row className="gy-4">
-          <Col md={4}>
+          <Col md={3}>
             <Card className="course-card">
               <Card.Img variant="top" src={acfn} />
               <Card.Body className="text-center">
@@ -54,7 +56,7 @@ const Dashboard = () => {
             </Card>
           </Col>
           {/* Repeat for each course (example shown for 3 out of 10 courses) */}
-          <Col md={4}>
+          <Col md={3}>
             <Card className="course-card">
               <Card.Img variant="top" src={digitalmarketing} />
               <Card.Body className="text-center">
@@ -62,7 +64,7 @@ const Dashboard = () => {
               </Card.Body>
             </Card>
           </Col>
-          <Col md={4}>
+          <Col md={3}>
             <Card className="course-card">
               <Card.Img variant="top" src={nusrsing} />
               <Card.Body className="text-center">
@@ -70,9 +72,17 @@ const Dashboard = () => {
               </Card.Body>
             </Card>
           </Col>
+          <Col md={3}>
+            <Card className="course-card">
+              <Card.Img variant="top" src={plumbing} />
+              <Card.Body className="text-center">
+                <Card.Title>Plumbing</Card.Title>
+              </Card.Body>
+            </Card>
+          </Col>
         </Row>
         <Row className="gy-4">
-          <Col md={4}>
+          <Col md={3}>
             <Card className="course-card">
               <Card.Img variant="top" src={automechanics} />
               <Card.Body className="text-center">
@@ -81,7 +91,7 @@ const Dashboard = () => {
             </Card>
           </Col>
           {/* Repeat for each course (example shown for 3 out of 10 courses) */}
-          <Col md={4}>
+          <Col md={3}>
             <Card className="course-card">
               <Card.Img variant="top" src={english} />
               <Card.Body className="text-center">
@@ -89,14 +99,23 @@ const Dashboard = () => {
               </Card.Body>
             </Card>
           </Col>
-          <Col md={4}>
+          <Col md={3}>
             <Card className="course-card">
-              <Card.Img variant="top" src={it} />
+              <Card.Img variant="top" src={computerprogramming} />
               <Card.Body className="text-center">
-                <Card.Title>Information Technology(IT)</Card.Title>
+                <Card.Title>Computer Programming</Card.Title>
               </Card.Body>
             </Card>
           </Col>
+          <Col md={3}>
+            <Card className="course-card">
+              <Card.Img variant="top" src={ielts} />
+              <Card.Body className="text-center">
+                <Card.Title>IELTS Preparation</Card.Title>
+              </Card.Body>
+            </Card>
+          </Col>
+         
         </Row>
       </section>
 
@@ -151,7 +170,7 @@ const Dashboard = () => {
       {/* Left Column: Logo and Description */}
       <Col md={4}>
         <img src={logob} alt="Company Logo" className="footer-logo mb-3" />
-        <p className="company-description">
+        <p className="company-description2">
         Train Up Institute is a practice-oriented training centre
          which equips working individuals, business owners and managers 
          with skills and knowledge they need to boost their 
@@ -162,8 +181,8 @@ const Dashboard = () => {
 
       {/* Center Column: Contact Information */}
       <Col md={4} className="d-flex flex-column align-items-center">
-        <p className="mb-1">Contact Us</p>
-        <p className="mb-1">Location: Kings Tower Building, Nsambya Est. Road</p>
+        <p className="mb-1">Contact Us</p><br></br><br></br>
+        <p className="mb-1">Location: Kings Tower Building, Nsambya Est. Road</p><br></br>
         < p className="mb-1">Email: Info@trainupinstitute.com</p>
         <p>Phone: +2567089511467</p>
         <p>Phone: +256789617567</p>

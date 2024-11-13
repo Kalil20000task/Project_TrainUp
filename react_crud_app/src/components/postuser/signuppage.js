@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Form, Button, Container, Row, Col } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import logo from '../images/logowhite.png'; // Make sure to adjust this path
-
+import './login.css';
 const SignUp = () => {
     const [formData, setFormData] = useState({
         fullname: '',
@@ -41,7 +41,8 @@ const SignUp = () => {
     };
 
     return (
-        <Container fluid className="d-flex justify-content-center align-items-center vh-100 bg-light">
+        <div className="login-page">  {/* Add this wrapper */}
+           <Container className="d-flex justify-content-center align-items-center vh-100">
             <Row className="w-100">
                 <Col md={{ span: 6, offset: 3 }}> {/* Widened the form */}
                     <div className="p-5 rounded bg-white shadow">
@@ -112,6 +113,7 @@ const SignUp = () => {
                 </Col>
             </Row>
         </Container>
+        </div>
     );
 };
 

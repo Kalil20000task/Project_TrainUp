@@ -14,14 +14,13 @@ const RegistrationForm = () => {
     email: '',
     country: '',
     course: [],
+    learningMode: '', // New field for Learning Mode
     date: { type: Date, default: Date.now }
   });
 
   const navigate = useNavigate();
 
   const [countries, setCountries] = useState([]);
-  // const countries = ["Select Country", "United States", "Canada", "United Kingdom", "Australia"];
-  //const courses = ["Accounting","Digital Marketing","Nursing","Automechanics", "English Language", "Plumbing", "Computer Basics", "IT(information Technology)","Business Administration"];
   const courses = [
     { label: "Accounting", value: "Accounting" },
     { label: "Digital Marketing", value: "Digital Marketing" },
@@ -32,6 +31,11 @@ const RegistrationForm = () => {
     { label: "Computer Basics", value: "Computer Basics" },
     { label: "IT (Information Technology)", value: "IT (Information Technology)" },
     { label: "Business Administration", value: "Business Administration" },
+  ];
+
+  const learningModes = [
+    { label: "In class", value: "In class" },
+    { label: "Online class", value: "Online class" }
   ];
 
   useEffect(() => {
@@ -62,6 +66,13 @@ const RegistrationForm = () => {
     setFormData((prevData) => ({
       ...prevData,
       course: selectedCourses,
+    }));
+  };
+
+  const handleLearningModeChange = (selectedOption) => {
+    setFormData((prevData) => ({
+      ...prevData,
+      learningMode: selectedOption ? selectedOption.value : '', // Update learning mode field
     }));
   };
 
@@ -102,14 +113,10 @@ const RegistrationForm = () => {
   return (
     <Container className="d-flex justify-content-center align-items-center min-vh-100">
       <div className="p-4 rounded shadow-lg" style={{ maxWidth: '1200px', backgroundColor: '#fff', color: '#000', width:'50%' }}>
-        <div className="text-end mb-2">
-          <button onClick={() => handleLanguageChange('en')}>English</button>
-          <button onClick={() => handleLanguageChange('ti')}>Tigrinya</button>
-        </div>
         <div className="text-center mb-4">
-                            <img src={logo} alt="Logo" className="img-fluid" style={{ maxWidth: '150px' }} />
+          <img src={logo} alt="Logo" className="img-fluid" style={{ maxWidth: '150px' }} />
         </div>
-        <h2 className="mb-4 text-center" style={{  color: 'orange'  }}>{t('Course Registration Form')}</h2>
+        <h2 className="mb-4 text-center" style={{ color: 'orange' }}>{t('Course Registration Form')}</h2>
         <Form onSubmit={handleSubmit}>
           <Form.Group className="mb-3" controlId="formFullName">
             <Form.Label>{t('Full Name')}</Form.Label>
@@ -172,7 +179,7 @@ const RegistrationForm = () => {
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="formCourse">
-            <Form.Label >{t('Course List')}</Form.Label>
+            <Form.Label>{t('Course List')}</Form.Label>
             <Select
               isMulti
               options={courses}
@@ -180,6 +187,19 @@ const RegistrationForm = () => {
               onChange={handleCourseChange}
               className="text-dark"
               placeholder="Select courses"
+              style={{ backgroundColor: '#e0f7fa' }} // Very light blue input fields
+            />
+          </Form.Group>
+
+          {/* New Dropdown for Learning Mode */}
+          <Form.Group className="mb-3" controlId="formLearningMode">
+            <Form.Label>{t('Learning Mode')}</Form.Label>
+            <Select
+              options={learningModes}
+              value={learningModes.find(option => option.value === formData.learningMode)}
+              onChange={handleLearningModeChange}
+              className="text-dark"
+              placeholder="Select learning mode"
               style={{ backgroundColor: '#e0f7fa' }} // Very light blue input fields
             />
           </Form.Group>

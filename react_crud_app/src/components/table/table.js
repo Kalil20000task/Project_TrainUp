@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Container, Row, Col, Table } from "react-bootstrap";
 import { useTranslation } from 'react-i18next';
 import logo from '../images/logowhite.png'; // Replace this with the correct path to your logo image
+import './table.css';
 
 const FetchUsers = () => {
     const [users, setUsers] = useState([]);
@@ -22,6 +23,7 @@ const FetchUsers = () => {
     }, []);
 
     return (
+        <div className="cont">
         <Container className="mt-5">
             <Row className="text-center">
                 <Col>
@@ -39,12 +41,14 @@ const FetchUsers = () => {
                                 <th>Email</th>
                                 <th>Country</th>
                                 <th>Courses</th>
+                                <th>learningMode</th>
                                 <th>Date</th>
                             </tr>
                         </thead>
                         <tbody>
                             {users.map((user, index) => (
                                 <tr
+                                   
                                     key={index}
                                     style={{
                                         backgroundColor: index % 2 === 0 ? 'white' : '#e0f7fa', // Zebra stripe effect with white and light blue
@@ -52,10 +56,11 @@ const FetchUsers = () => {
                                 >
                                     <td>{index + 1}</td>
                                     <td>{user.fullName}</td>
-                                    <td>{user.telephone}</td>
+                                    <td >{user.telephone}</td>
                                     <td>{user.email}</td>
                                     <td>{user.country}</td>
                                     <td>{user.course}</td>
+                                    <td>{user.learningMode}</td>
                                     <td>{user.date}</td>
                                 </tr>
                             ))}
@@ -64,6 +69,7 @@ const FetchUsers = () => {
                 </Col>
             </Row>
         </Container>
+        </div>
     );
 };
 

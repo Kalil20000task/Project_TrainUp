@@ -26,7 +26,7 @@ const Header = () => {
   About Us
 </Nav.Link>
 
-            <Nav.Link as={Link} className="nav-link" to="/register_user" style={{ color: 'orange' }}>Register Students</Nav.Link>
+            <Nav.Link as={Link} className="nav-link" to="/register_user" style={{ color: 'orange' }}>Register</Nav.Link>
             <Nav.Link as={Link} className="nav-link" to="/table" style={{ color: 'orange' }}>Table</Nav.Link>
             <Nav.Link as={Link} className="nav-link" to="/signup" style={{ color: 'orange' }}>Sign Staffs</Nav.Link>
             <Nav.Link as={Link} className="nav-link" to="/login" style={{ color: 'orange' }}>Login</Nav.Link>

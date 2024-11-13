@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Form, Button, Container, Row, Col, Alert } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import logo from '../images/logowhite.png';
+import './login.css';
 const Login = () => {
     const [formData, setFormData] = useState({
         username: '',
@@ -53,7 +54,8 @@ const Login = () => {
     };
 
     return (
-        <Container fluid className="d-flex justify-content-center align-items-center vh-100 bg-light">
+        <div className="login-page">  {/* Add this wrapper */}
+           <Container className="d-flex justify-content-center align-items-center vh-100">
             <Row className="w-100">
                 <Col md={{ span: 4, offset: 4 }}>
                     <div className="p-4 rounded shadow-lg" style={{ maxWidth: '1200px', width: '100%', backgroundColor: '#fff' }}>
@@ -112,6 +114,7 @@ const Login = () => {
                 </Col>
             </Row>
         </Container>
+    </div>
     );
 };
 

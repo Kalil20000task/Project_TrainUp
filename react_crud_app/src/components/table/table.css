@@ -1,0 +1,21 @@
+.cont {
+    position: relative; /* Make the section a positioned element */
+    overflow: hidden;
+  }
+  
+  .cont::after  {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(44, 180, 172, 0.2); /* #2cb4ac with 10% opacity */
+    z-index: 1; /* Place it behind the content */
+  }
+ 
+   
+  td{
+    color: black;
+    font-weight: 500;
+  }

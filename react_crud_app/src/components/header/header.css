@@ -9,6 +9,7 @@
   /* Add gap between navigation links */
   .nav-link {
     margin-right: 20px; /* Add space between links */
+    font-weight: bolder;
   }
   
   /* Ensure the logo and brand are aligned to the left */
