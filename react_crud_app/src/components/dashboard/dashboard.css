@@ -131,7 +131,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(44, 180, 172, 0.3); /* #2cb4ac with 10% opacity */
+    background-color: rgba(241, 247, 246, 0.3); /* #2cb4ac with 10% opacity */
     z-index: 1; /* Place it behind the content */
 }
 
