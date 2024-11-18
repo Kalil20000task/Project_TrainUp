@@ -37,7 +37,8 @@ const FetchUsers = () => {
                             <tr>
                                 <th>#</th>
                                 <th>Full Name</th>
-                                <th>Telephone</th>
+                                {/* <th>Telephone</th> */}
+                                <th>WhatsappNumber</th>
                                 <th>Email</th>
                                 <th>Country</th>
                                 <th>Courses</th>
@@ -56,7 +57,9 @@ const FetchUsers = () => {
                                 >
                                     <td>{index + 1}</td>
                                     <td>{user.fullName}</td>
-                                    <td >{user.telephone}</td>
+                                    {/* <td >{user.telephone}</td> */}
+                                    <td >{user.whatsappNumber}</td>
+
                                     <td>{user.email}</td>
                                     <td>{user.country}</td>
                                     <td>{user.course}</td>

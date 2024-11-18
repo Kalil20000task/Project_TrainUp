@@ -1,42 +1,62 @@
-// import logo from './logo.svg';
+import React, { useEffect, useState } from 'react';
 import './App.css';
-import Button from 'react-bootstrap/Button';
 import { Route, Routes } from 'react-router-dom';
+import Header from './components/header/homeheader';
 import Dashboard from './components/dashboard/dashboard';
 import Nomatch from './components/nomatch/nomatch';
 import Update from './components/manageuser/update';
-import Header from './components/header/homeheader';
-import LoginHeader from './components/header/loginheader';
 import RegistrationForm from './components/postuser/submit_data';
 import AboutUs from './components/aboutus/aboutus';
 import FetchUsers from './components/table/table';
 import SignUp from './components/postuser/signuppage';
 import Login from './components/postuser/loginpage';
-import './i18n';
+import ProtectedRoute from './components/protectedpages'; // Import the ProtectedRoute component
+
 function App() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+    // Check if the token exists in localStorage
+    const token = localStorage.getItem('token');
+    if (token) {
+      setIsLoggedIn(true);
+    } else {
+      setIsLoggedIn(false);
+    }
+  }, []);
+
   return (
-    // <div className="App">
-    //   <header className="App-header">
-    //      <Button> Learn React </Button>
-        
-    //   </header>
-
-    // </div>,
     <>
-    <Header></Header>
+      <Header />
+      <Routes>
+        <Route path="/" element={<Dashboard />} />
+        <Route path="/*" element={<Nomatch />} />
+        <Route path="/update" element={<Update />} />
+        <Route path="/about_us" element={<AboutUs />} />
+        <Route path="/register_user" element={<RegistrationForm />} />
+        <Route path="/login" element={<Dashboard />} />
 
-    <Routes>
-      <Route path='/' element={<Dashboard></Dashboard>}></Route>
-      <Route path='/*' element={<Nomatch></Nomatch>}></Route>
-      <Route path='/update' element={<Update></Update>}></Route>
-      <Route path='/about_us' element={<AboutUs></AboutUs>}></Route>
-      <Route path='/register_user' element={<RegistrationForm></RegistrationForm>}></Route>
-      <Route path='/signup' element={<SignUp></SignUp>}></Route>
-      <Route path='/login' element={<Login></Login>}></Route>
-      <Route path='/table' element={<FetchUsers></FetchUsers>}></Route>
-      
-      
-    </Routes>
+        {/* Admin Access Route */}
+        <Route path="/adminaccess" element={<Login />} />
+
+        {/* Protected Routes */}
+        <Route
+          path="/table"
+          element={
+            <ProtectedRoute isLoggedIn={isLoggedIn}>
+              <FetchUsers />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/signup"
+          element={
+            <ProtectedRoute isLoggedIn={isLoggedIn}>
+              <SignUp />
+            </ProtectedRoute>
+          }
+        />
+      </Routes>
     </>
   );
 }

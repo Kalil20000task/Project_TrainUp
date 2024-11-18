@@ -4,13 +4,16 @@ import { useNavigate } from 'react-router-dom';
 import { getNames } from 'country-list';
 import Select from 'react-select';
 import { useTranslation } from 'react-i18next';
+import ReactPhoneInput from 'react-phone-input-2';
+import 'react-phone-input-2/lib/style.css';
 import logo from '../images/logowhite.png'; 
 
 const RegistrationForm = () => {
   const { t, i18n } = useTranslation(); // Import translation hook
   const [formData, setFormData] = useState({
     fullName: '',
-    telephone: '',
+   // telephone: '',
+    whatsappNumber: '', 
     email: '',
     country: '',
     course: [],
@@ -89,6 +92,7 @@ const RegistrationForm = () => {
 
     const formDataToSubmit = {
       ...formData,
+      whatsappNumber: formData.whatsappNumber,
       course: formData.course.join(', '), // Convert array to comma-separated string
       date: currentDate,
     };
@@ -132,7 +136,7 @@ const RegistrationForm = () => {
             />
           </Form.Group>
 
-          <Form.Group className="mb-3" controlId="formTelephone">
+          {/* <Form.Group className="mb-3" controlId="formTelephone">
             <Form.Label>{t('Telephone')}</Form.Label>
             <Form.Control
               type="tel"
@@ -144,7 +148,23 @@ const RegistrationForm = () => {
               className="bg-lightblue text-dark"
               style={{ backgroundColor: '#e0f7fa' }} // Very light blue input fields
             />
-          </Form.Group>
+          </Form.Group> */}
+          <Form.Group className="mb-3" controlId="formWhatsappNumber">
+  <Form.Label>{t('WhatsApp Number')}</Form.Label>
+  <ReactPhoneInput
+    country={'us'} // Default country
+    value={formData.whatsappNumber}
+    onChange={(value) =>
+      setFormData((prevData) => ({ ...prevData, whatsappNumber: value }))
+    }
+    inputStyle={{
+      width: '100%',
+      backgroundColor: '#e0f7fa',
+      color: '#000',
+    }}
+    dropdownStyle={{ color: '#000' }}
+  />
+</Form.Group>
 
           <Form.Group className="mb-3" controlId="formEmail">
             <Form.Label>{t('Email Address')}</Form.Label>
@@ -154,7 +174,7 @@ const RegistrationForm = () => {
               name="email"
               value={formData.email}
               onChange={handleChange}
-              required
+              //required
               className="bg-lightblue text-dark"
               style={{ backgroundColor: '#e0f7fa' }} // Very light blue input fields
             />
@@ -188,6 +208,7 @@ const RegistrationForm = () => {
               className="text-dark"
               placeholder="Select courses"
               style={{ backgroundColor: '#e0f7fa' }} // Very light blue input fields
+              required
             />
           </Form.Group>
 
@@ -201,6 +222,7 @@ const RegistrationForm = () => {
               className="text-dark"
               placeholder="Select learning mode"
               style={{ backgroundColor: '#e0f7fa' }} // Very light blue input fields
+              required
             />
           </Form.Group>
 
