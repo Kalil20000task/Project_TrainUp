@@ -17,6 +17,7 @@ const RegistrationForm = () => {
     email: '',
     country: '',
     course: [],
+    additionalcourses:'',
     learningMode: '', // New field for Learning Mode
     date: { type: Date, default: Date.now }
   });
@@ -121,6 +122,7 @@ const RegistrationForm = () => {
           <img src={logo} alt="Logo" className="img-fluid" style={{ maxWidth: '150px' }} />
         </div>
         <h2 className="mb-4 text-center" style={{ color: 'orange' }}>{t('Course Registration Form')}</h2>
+        
         <Form onSubmit={handleSubmit}>
           <Form.Group className="mb-3" controlId="formFullName">
             <Form.Label>{t('Full Name')}</Form.Label>
@@ -209,6 +211,22 @@ const RegistrationForm = () => {
               placeholder="Select courses"
               style={{ backgroundColor: '#e0f7fa' }} // Very light blue input fields
               required
+            />
+          </Form.Group>
+
+         
+          <Form.Group className="mb-3" controlId="additionalcourses">
+            <Form.Label>{t('Additional Courses')}</Form.Label>
+            <Form.Control
+              
+              type="text"
+              placeholder="courses you want to learn that are not in the list"
+              name="additionalcourses"
+              value={formData.additionalcourses}
+              onChange={handleChange}
+              required
+              className="bg-lightblue text-dark"
+              style={{ backgroundColor: '#e0f7fa' }} // Very light blue input fields
             />
           </Form.Group>
 

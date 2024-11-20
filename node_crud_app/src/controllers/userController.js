@@ -4,10 +4,10 @@ class userController{
         try{
             const {fullName,
                 //telephone,
-                whatsappNumber,email,country,course,learningMode,date}=req.body;
+                whatsappNumber,email,country,course,additionalcourses,learningMode,date}=req.body;
             const saveUser= await UserService.createUser(fullName,
                 //telephone,
-                whatsappNumber,email,country,course,learningMode,date);
+                whatsappNumber,email,country,course,additionalcourses,learningMode,date);
             res.json(saveUser);
         }
         catch(error){

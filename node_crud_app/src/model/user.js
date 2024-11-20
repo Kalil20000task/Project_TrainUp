@@ -5,6 +5,7 @@ const userSchema= new mongoose.Schema({
     email: String,
     country: String,
     course: [String],
+    additionalcourses: String,
     learningMode:[String],
     date: { type: Date, default: Date.now },
     whatsappNumber: String

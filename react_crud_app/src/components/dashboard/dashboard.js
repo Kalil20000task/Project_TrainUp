@@ -1,5 +1,6 @@
 import React from 'react';
 import './dashboard.css';
+//import './fontawesome.css';
 import { Container, Row, Col, Card } from 'react-bootstrap';
 import logo from '../images/logowhite.png'; // Adjust path to your logo
 import logob from '../images/logoblack.png';
@@ -18,12 +19,18 @@ import ielts from '../images/ielts.jpeg';
 import aklilu from '../images/aklilu.jpg'; // Adjust paths to your teacher images
 import hadsh from '../images/hadsh.jpg';
 import brave from '../images/brave.jpg';
-<link
-  rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-  integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOM3bx4ST/6omIO2V7p/7j3/H/7Hh9PZ28J4F9EJ"
-  crossorigin="anonymous"
-/>
+
+
+
+
+import im6 from '../images/graduationday/im6.JPG'; // Adjust paths to your teacher images
+import im7 from '../images/graduationday/im7.JPG';
+import im8 from '../images/graduationday/im8.JPG';
+import im9 from '../images/graduationday/im9.JPG';
+import im11 from '../images/graduationday/im11.JPG';// Adjust paths to your teacher images
+import im12 from '../images/graduationday/im12.JPG';
+import im13 from '../images/graduationday/im13.JPG' // Adjust paths to your teacher images
+import im4 from '../images/graduationday/im4.jpg';
 
 
 const Dashboard = () => {
@@ -117,11 +124,89 @@ const Dashboard = () => {
           </Col>
          
         </Row>
+        <h3 className='appendix'>and many more others...</h3>
       </section>
+
+
+
+
+
+      {/* <section className="section-two py-5">
+        <h2 className="section-title text-center mb-4">We Have More Than 20 Courses</h2>
+        <Row className="gy-4">
+          <Col md={3}>
+            <Card className="course-card">
+              <Card.Img variant="top" src={im8} />
+            </Card>
+          </Col>
+          
+          <Col md={3}>
+            <Card className="course-card">
+              <Card.Img variant="top" src={im7} />
+            </Card>
+          </Col>
+          <Col md={3}>
+            <Card className="course-card">
+              <Card.Img variant="top" src={im6} />
+            
+            </Card>
+          </Col>
+          <Col md={3}>
+            <Card className="course-card">
+              <Card.Img variant="top" src={im9} />
+              
+            </Card>
+          </Col>
+        </Row>
+        <Row className="gy-4">
+          <Col md={3}>
+            <Card className="course-card">
+              <Card.Img variant="top" src={im11} />
+             
+            </Card>
+          </Col>
+         
+          <Col md={3}>
+            <Card className="course-card">
+              <Card.Img variant="top" src={im12} />
+              
+            </Card>
+          </Col>
+          <Col md={3}>
+            <Card className="course-card">
+              <Card.Img variant="top" src={im13} />
+              
+            </Card>
+          </Col>
+          <Col md={3}>
+            <Card className="course-card">
+              <Card.Img variant="top" src={im4} />
+              
+            </Card>
+          </Col>
+         
+        </Row>
+        <h3 className='appendix'>and many more others...</h3>
+      </section>
+ */}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
       {/* Section 3: Teachers */}
       <section id="section-three"  className="section-three py-5 bg-light">
-  <h2 className="section-title text-center mb-4">Featured Teachers</h2>
+  <h2 className="section-title text-center mb-4">Administration</h2>
   <Row className="gy-4">
     <Col md={3}>
       <Card className="teacher-card text-center">
@@ -164,26 +249,26 @@ const Dashboard = () => {
 
 
       {/* Section 4: Footer */}
-      <footer className="footer-section text-white py-5 bg-dark">
+  {/* Section 4: Footer */}
+<footer className="footer-section text-white py-5 bg-dark">
   <Container>
     <Row className="text-center text-md-start">
       {/* Left Column: Logo and Description */}
       <Col md={4}>
         <img src={logob} alt="Company Logo" className="footer-logo mb-3" />
         <p className="company-description2">
-        Train Up Institute is a practice-oriented training centre
-         which equips working individuals, business owners and managers 
-         with skills and knowledge they need to boost their 
-         careers and transform their businesses.
+          Train Up Institute is a practice-oriented training centre
+          which equips working individuals, business owners, and managers 
+          with skills and knowledge they need to boost their careers and 
+          transform their businesses.
         </p>
       </Col>
-   
 
       {/* Center Column: Contact Information */}
       <Col md={4} className="d-flex flex-column align-items-center">
         <p className="mb-1">Contact Us</p><br></br><br></br>
         <p className="mb-1">Location: Kings Tower Building, Nsambya Est. Road</p><br></br>
-        < p className="mb-1">Email: Info@trainupinstitute.com</p>
+        <p className="mb-1">Email: Info@trainupinstitute.com</p>
         <p>Phone: +2567089511467</p>
         <p>Phone: +256789617567</p>
       </Col>
@@ -192,20 +277,24 @@ const Dashboard = () => {
       <Col md={4} className="d-flex flex-column align-items-md-end align-items-center">
         <p className="mb-1">Follow Us</p>
         <div className="social-icons d-flex justify-content-center justify-content-md-end">
-          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="text-white me-3">
+          <a href="https://facebook.com/yourcompany" target="_blank" rel="noopener noreferrer" className="text-white me-3">
             <i className="fab fa-facebook-f"></i>
           </a>
-          <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-white me-3">
+          <a href="https://twitter.com/yourcompany" target="_blank" rel="noopener noreferrer" className="text-white me-3">
             <i className="fab fa-twitter"></i>
           </a>
-          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-white">
+          <a href="https://linkedin.com/company/yourcompany" target="_blank" rel="noopener noreferrer" className="text-white me-3">
             <i className="fab fa-linkedin-in"></i>
+          </a>
+          <a href="https://instagram.com/yourcompany" target="_blank" rel="noopener noreferrer" className="text-white me-3">
+            <i className="fab fa-instagram"></i>
           </a>
         </div>
       </Col>
     </Row>
   </Container>
 </footer>
+
 
     </Container>
   );

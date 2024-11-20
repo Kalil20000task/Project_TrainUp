@@ -59,6 +59,7 @@
       height: 200px;
       object-fit: cover; /* Adjusts image fit */
       border-radius: 50%; /* Makes image circular if needed */
+      align-self: center;
     
     
   }
@@ -181,4 +182,8 @@
 .section-three teacher-card {
   position: relative;
   z-index: 2; /* Keep the content above the overlay */
+}
+.appendix{
+  text-align: center;
+  color: #fca404;
 }

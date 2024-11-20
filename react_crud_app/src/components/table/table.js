@@ -42,6 +42,7 @@ const FetchUsers = () => {
                                 <th>Email</th>
                                 <th>Country</th>
                                 <th>Courses</th>
+                                <th>Additional Courses</th>
                                 <th>learningMode</th>
                                 <th>Date</th>
                             </tr>
@@ -63,6 +64,7 @@ const FetchUsers = () => {
                                     <td>{user.email}</td>
                                     <td>{user.country}</td>
                                     <td>{user.course}</td>
+                                    <td>{user.additionalcourses}</td>
                                     <td>{user.learningMode}</td>
                                     <td>{user.date}</td>
                                 </tr>
