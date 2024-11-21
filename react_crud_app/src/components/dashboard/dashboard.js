@@ -19,6 +19,7 @@ import ielts from '../images/ielts.jpeg';
 import aklilu from '../images/aklilu.jpg'; // Adjust paths to your teacher images
 import hadsh from '../images/hadsh.jpg';
 import brave from '../images/brave.jpg';
+import hannah from '../images/hannah.jpeg';
 
 
 
@@ -219,10 +220,10 @@ const Dashboard = () => {
     </Col>
     <Col md={3}>
       <Card className="teacher-card text-center">
-        <Card.Img variant="top" src={aklilu} className="teacher-img" />
+        <Card.Img variant="top" src={hannah} className="teacher-img" />
         <Card.Body>
-          <Card.Title>Teacher Name 2</Card.Title>
-          <Card.Text>Language Specialist</Card.Text>
+          <Card.Title>Hanna Amanuel</Card.Title>
+          <Card.Text>Administrator</Card.Text>
         </Card.Body>
       </Card>
     </Col>
