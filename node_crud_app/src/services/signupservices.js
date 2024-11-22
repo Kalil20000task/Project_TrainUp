@@ -1,5 +1,6 @@
 const User = require("../model/signupmodel");
-const bcrypt = require("bcrypt");
+//const bcrypt = require("bcrypt");
+const bcrypt = require('bcryptjs');
 
 async function signupuser(userData) {
   const { fullname, username, password, role } = userData;
