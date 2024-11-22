@@ -24,7 +24,7 @@ const Login = () => {
         setError(null); // Reset error message on submit
 
         try {
-            const response = await fetch("http://localhost:5000/api/loginusers", {
+            const response = await fetch("https://project-trainup-9.onrender.com/api/loginusers", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
