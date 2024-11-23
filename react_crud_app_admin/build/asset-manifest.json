@@ -1,0 +1,30 @@
+{
+  "files": {
+    "main.css": "/static/css/main.24b03154.css",
+    "main.js": "/static/js/main.5d50f21a.js",
+    "static/js/453.c4197f6e.chunk.js": "/static/js/453.c4197f6e.chunk.js",
+    "static/media/bg2.jpeg": "/static/media/bg2.8d67aacfe7dba7782108.jpeg",
+    "static/media/digitalmarketing.jpeg": "/static/media/digitalmarketing.b332160d3960ebf2658f.jpeg",
+    "static/media/plumbing.jpeg": "/static/media/plumbing.cf38f512c916623ef646.jpeg",
+    "static/media/ielts.jpeg": "/static/media/ielts.4e15752391e1e6745029.jpeg",
+    "static/media/computerprogramming.jpeg": "/static/media/computerprogramming.66c2040f5f8b8043fbb4.jpeg",
+    "static/media/automechanics.jpeg": "/static/media/automechanics.9b6ad9b70b0a6ad4a795.jpeg",
+    "static/media/english.jpeg": "/static/media/english.4f086d935246db6a485e.jpeg",
+    "static/media/aklilu.jpg": "/static/media/aklilu.1c0085a05ab2a44050b9.jpg",
+    "static/media/logoblack.png": "/static/media/logoblack.b0c99bd0eb10d328b8b6.png",
+    "static/media/nursing.jpeg": "/static/media/nursing.94ae503dade009375215.jpeg",
+    "static/media/acfn.jpeg": "/static/media/acfn.3ac42d1c771ad3b6466c.jpeg",
+    "static/media/brave.jpg": "/static/media/brave.bcc244a5aeedf67bf648.jpg",
+    "static/media/hadsh.jpg": "/static/media/hadsh.e3e4b3aa6522f8209ab7.jpg",
+    "static/media/logowhite.png": "/static/media/logowhite.fef5734f61d41fe20b0b.png",
+    "static/media/hannah.jpeg": "/static/media/hannah.3560b41ff5a6b951b964.jpeg",
+    "index.html": "/index.html",
+    "main.24b03154.css.map": "/static/css/main.24b03154.css.map",
+    "main.5d50f21a.js.map": "/static/js/main.5d50f21a.js.map",
+    "453.c4197f6e.chunk.js.map": "/static/js/453.c4197f6e.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.24b03154.css",
+    "static/js/main.5d50f21a.js"
+  ]
+}
