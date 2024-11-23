@@ -11,7 +11,7 @@ const FetchUsers = () => {
     useEffect(() => {
         const fetchUsers = async () => {
             try {
-                const response = await fetch("https://project-trainup-9.onrender.com/api/user");
+                const response = await fetch("https://node-crud-app-fwr0.onrender.com/api/user");
                 const data = await response.json();
                 setUsers(data);
             } catch (error) {
