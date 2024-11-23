@@ -25,7 +25,7 @@ const SignUp = () => {
         console.log("Form submitted:", formData);
     
         try {
-            const response = await fetch("https://project-trainup-9.onrender.com/api/signusers", {
+            const response = await fetch("https://node-crud-app-fwr0.onrender.com/api/signusers", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"

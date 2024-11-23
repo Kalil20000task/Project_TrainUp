@@ -1,0 +1,18 @@
+/* styles.css */
+.login-page {
+    /* background: linear-gradient(135deg, #ff9800, #ffc107); Orange-yellow gradient */
+    /* min-height: 100vh; */
+    /* display: flex; */
+    /* justify-content: center; */
+    /* align-items: center; */
+    background-image: url('./bg2.jpeg'); /* Replace with your image path */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}

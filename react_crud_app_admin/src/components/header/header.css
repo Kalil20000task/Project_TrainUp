@@ -1,0 +1,33 @@
+/* Adjust font size, weight, and color for nav links */
+.nav-link, .nav-brand {
+    
+    font-size: large;
+    font-weight: bold;
+    color: orange !important; /* Make the color bold and stand out */
+  }
+  
+  /* Add gap between navigation links */
+  .nav-link {
+    margin-right: 20px; /* Add space between links */
+    font-weight: bolder;
+  }
+  
+  /* Ensure the logo and brand are aligned to the left */
+  .nav-brand {
+    display: flex;
+    align-items: center; /* Center vertically */
+    gap: 10px; /* Add space between the logo and brand text */
+  }
+  
+  /* Adjust navbar height */
+  .custom-navbar {
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+  
+  /* Logo style */
+  .logo {
+    width: 40px;
+    height: 40px;
+  }
+  
