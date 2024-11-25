@@ -97,6 +97,34 @@ const Header = () => {
                 </Nav.Link>
               </>
             )}
+               {/* Language Selection */}
+              <div className="language-buttons">
+              <Button
+                onClick={() => handleLanguageChange('en')}
+                style={{
+                  color: 'white',
+                  backgroundColor: 'orange',
+                  border: 'none',
+                  marginRight: '10px',
+                  padding: '5px 15px',
+                  fontSize: '14px',
+                }}
+              >
+                English
+              </Button>
+              <Button
+                onClick={() => handleLanguageChange('tgr')}
+                style={{
+                  color: 'white',
+                  backgroundColor: 'orange',
+                  border: 'none',
+                  padding: '5px 15px',
+                  fontSize: '14px',
+                }}
+              >
+                ትግርኛ
+              </Button>
+            </div>
           </Nav>
         </Navbar.Collapse>
       </Container>
