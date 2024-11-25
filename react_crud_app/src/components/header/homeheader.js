@@ -41,6 +41,10 @@ const Header = () => {
     setUserRole(null);
     navigate('/login');
   };
+   const handleLanguageChange = (lang) => {
+    i18n.changeLanguage(lang); // This will trigger the language change
+  };
+
 
   // Check if the current route is "/adminaccess"
   const isAdminAccess = location.pathname === '/adminaccess';
