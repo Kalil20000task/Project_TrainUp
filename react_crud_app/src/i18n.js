@@ -1,16 +1,25 @@
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
-import en from './locales/en.json';
-import ti from './locales/ti.json';
+import LanguageDetector from 'i18next-browser-languagedetector';
+import translationEN from './locales/en.json';
+import translationTGR from './locales/ti.json'; // Tigrinya
 
-i18n.use(initReactI18next).init({
-  resources: {
-    en: { translation: en },
-    ti: { translation: ti }
-  },
-  lng: 'en', // default language
-  fallbackLng: 'en', // fallback language
-  interpolation: { escapeValue: false }
-});
+i18n
+  .use(LanguageDetector)
+  .use(initReactI18next)
+  .init({
+    resources: {
+      en: {
+        translation: translationEN
+      },
+      tgr: {
+        translation: translationTGR
+      }
+    },
+    fallbackLng: 'en',
+    interpolation: {
+      escapeValue: false
+    }
+  });
 
 export default i18n;
