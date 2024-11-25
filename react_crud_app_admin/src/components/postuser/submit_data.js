@@ -36,8 +36,8 @@ const RegistrationForm = () => {
   ];
 
   const learningModes = [
-    { label: "In class", value: "In class" },
-    { label: "Online class", value: "Online class" },
+    { label: t("In class"), value: "In class" },
+    { label: t("Online class"), value: "Online class" },
   ];
 
   useEffect(() => {
@@ -209,7 +209,7 @@ const RegistrationForm = () => {
                   )}
                   onChange={handleCourseChange}
                   className="text-dark"
-                  placeholder="Select courses"
+                  placeholder= {t("Select courses, You can select multiple courses")}
                   style={{ width: "100%", backgroundColor: "#e0f7fa" }}
                   required
                 />
@@ -238,7 +238,7 @@ const RegistrationForm = () => {
                   )}
                   onChange={handleLearningModeChange}
                   className="text-dark"
-                  placeholder="Select learning mode"
+                  placeholder={t("Select learning mode")}
                   style={{ width: "100%", backgroundColor: "#e0f7fa" }}
                   required
                 />
