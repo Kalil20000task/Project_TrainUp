@@ -9,6 +9,8 @@ import i18n from '../../i18n';
 import logo from '../images/logowhite.png'; // Adjust the path to your logo image
 import { HashLink } from 'react-router-hash-link';
 import {jwtDecode} from 'jwt-decode';
+import { Button } from 'react-bootstrap';
+
 
 const Header = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
