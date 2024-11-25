@@ -96,7 +96,7 @@ const RegistrationForm = () => {
 
     try {
       const response = await fetch(
-        "https://node-crud-app-fwr0.onrender/api/user",
+        "https://node-crud-app-fwr0.onrender.com/api/user",
         {
           method: "POST",
           headers: {
