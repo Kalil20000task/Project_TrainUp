@@ -5,6 +5,8 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { Link } from 'react-router-dom';
 import './header.css';
+import i18n from '../../i18n';
+
 import logo from '../images/logowhite.png'; // Adjust the path to your logo image
 import { HashLink } from 'react-router-hash-link';
 import {jwtDecode} from 'jwt-decode';
