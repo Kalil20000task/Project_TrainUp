@@ -24,7 +24,7 @@ const RegistrationForm = () => {
   const navigate = useNavigate();
   const [countries, setCountries] = useState([]);
   const courses = [
-     { label: "Not selected", value: "Not selected" },
+    
     { label: "Accounting theory", value: "Accounting theory" },
      { label: "Accounting quick course", value: "Accounting quick course" },
     
@@ -232,7 +232,7 @@ const RegistrationForm = () => {
                   className="text-dark"
                   placeholder= {t("Select courses, You can select multiple courses")}
                   style={{ width: "100%", backgroundColor: "#e0f7fa" }}
-                  required
+                 
                 />
               </Form.Group>
 
@@ -244,7 +244,7 @@ const RegistrationForm = () => {
                   name="additionalcourses"
                   value={formData.additionalcourses}
                   onChange={handleChange}
-                  required
+                 
                   className="bg-lightblue text-dark"
                   style={{ width: "100%", backgroundColor: "#e0f7fa" }}
                 />
