@@ -24,15 +24,36 @@ const RegistrationForm = () => {
   const navigate = useNavigate();
   const [countries, setCountries] = useState([]);
   const courses = [
-    { label: "Accounting", value: "Accounting" },
+     { label: "Not selected", value: "Not selected" },
+    { label: "Accounting theory", value: "Accounting theory" },
+     { label: "Accounting quick course", value: "Accounting quick course" },
+    
     { label: "Digital Marketing", value: "Digital Marketing" },
-    { label: "Nursing", value: "Nursing" },
+    { label: "Certified Nurse Assistant ", value: "Certified Nurse Assistant" },
     { label: "Automechanics", value: "Automechanics" },
     { label: "English Language", value: "English Language" },
+    { label: "French Language", value: "French Language" },
     { label: "Plumbing", value: "Plumbing" },
     { label: "Computer Basics", value: "Computer Basics" },
     { label: "IT (Information Technology)", value: "IT (Information Technology)" },
     { label: "Business Administration", value: "Business Administration" },
+
+
+     { label: "Personal Development", value: "Personal Development" },
+    { label: "Marketing and sales", value: "Marketing and sales" },
+    { label: "Report writing", value: "Report writing" },
+    { label: "Project Management", value: "Project Management" },
+    { label: "Monitoring and Evaluation", value: "Monitoring and Evaluation" },
+    { label: "Electronics", value: "Electronics" },
+    { label: "Electricity", value: "Electricity" },
+    { label: "Graphics and video editing", value: "Graphics and video editing" },
+    { label: "Tally software", value: "Tally software" },
+    { label: "QuickBooks software", value: "QuickBooks software" },
+
+       { label: "IELTS Preparatory course", value: "IELTS Preparatory course" },
+    { label: "Artificial Intelligence course", value: "Artificial Intelligence cours" },
+      { label: "Advance IT course", value: "Advance IT course" },
+    { label: "Microsoft Excel", value: "Microsoft Excel" },
   ];
 
   const learningModes = [
