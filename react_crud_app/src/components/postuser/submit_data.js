@@ -24,7 +24,7 @@ const RegistrationForm = () => {
   const navigate = useNavigate();
   const [countries, setCountries] = useState([]);
   const courses = [
-    { label: "Not selected", value: "Not selected" },
+    
     { label: "Accounting theory", value: "Accounting theory" },
      { label: "Accounting quick course", value: "Accounting quick course" },
     
