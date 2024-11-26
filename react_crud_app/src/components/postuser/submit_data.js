@@ -234,7 +234,7 @@ const RegistrationForm = () => {
                   className="text-dark"
                   placeholder= {t("Select courses, You can select multiple courses")}
                   style={{ width: "100%", backgroundColor: "#e0f7fa" }}
-                  required
+                  
                 />
               </Form.Group>
 
@@ -246,7 +246,7 @@ const RegistrationForm = () => {
                   name="additionalcourses"
                   value={formData.additionalcourses}
                   onChange={handleChange}
-                  required
+                  
                   className="bg-lightblue text-dark"
                   style={{ width: "100%", backgroundColor: "#e0f7fa" }}
                 />
