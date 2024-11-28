@@ -30,7 +30,7 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Dashboard />} />
-        <Route path="/*" element={<Nomatch />} />
+        <Route path="/*" element={<Dashboard />} />
         <Route path="/update" element={<Update />} />
         <Route path="/about_us" element={<AboutUs />} />
         <Route path="/register_user" element={<RegistrationForm />} />
