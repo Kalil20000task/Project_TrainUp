@@ -110,7 +110,9 @@ const RegistrationForm = () => {
   };
 
   const handleSubmit = async (e) => {
+    NProgress.start();
     e.preventDefault();
+    
     const currentDate = new Date().toISOString().split("T")[0];
     const formDataToSubmit = {
       ...formData,
@@ -118,7 +120,7 @@ const RegistrationForm = () => {
       course: formData.course.join(", "),
       date: currentDate,
     };
-    NProgress.start();
+   
 
     try {
       const response = await fetch(

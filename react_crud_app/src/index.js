@@ -6,11 +6,16 @@ import reportWebVitals from './reportWebVitals';
 import './i18n';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter } from 'react-router-dom';
+import { LoadingProvider } from './loadingcontext';
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-       <App />
+    <LoadingProvider>
+         <App />
+    </LoadingProvider>
+       
     </BrowserRouter>
     
   </React.StrictMode>
