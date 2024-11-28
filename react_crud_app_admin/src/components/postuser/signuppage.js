@@ -3,6 +3,8 @@ import { Form, Button, Container, Row, Col } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import logo from '../images/logowhite.png'; // Make sure to adjust this path
 import './login.css';
+import NProgress from 'nprogress';
+
 const SignUp = () => {
     const [formData, setFormData] = useState({
         fullname: '',
@@ -21,6 +23,7 @@ const SignUp = () => {
     };
 
     const handleSubmit = async (e) => {
+        NProgress.start();
         e.preventDefault();
         console.log("Form submitted:", formData);
     
@@ -37,6 +40,9 @@ const SignUp = () => {
             navigate("/");
         } catch (error) {
             console.error("error.message");
+        }
+        finally{
+            NProgress.done();
         }
     };
 

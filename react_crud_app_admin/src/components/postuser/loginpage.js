@@ -3,7 +3,14 @@ import { Form, Button, Container, Row, Col, Alert } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import logo from '../images/logowhite.png';
 import './login.css';
+import NProgress from 'nprogress';
+
+// import { useLoading } from '../../loadingcontext';
+
 const Login = () => {
+    // const { setLoading } = useLoading();
+    // NProgress.start();
+
     const [formData, setFormData] = useState({
         username: '',
         password: ''
@@ -20,6 +27,8 @@ const Login = () => {
     };
 
     const handleSubmit = async (e) => {
+        // setLoading(true); // Show spinner
+        NProgress.start();
         e.preventDefault();
         setError(null); // Reset error message on submit
 
@@ -51,6 +60,11 @@ const Login = () => {
             console.error("Login error:", error.message);
             setError('An error occurred. Please try again.');
         }
+        finally {
+        // setLoading(false); // Hide spinner
+        NProgress.done();
+      }
+        
     };
 
     return (

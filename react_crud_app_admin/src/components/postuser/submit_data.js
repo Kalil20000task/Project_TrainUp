@@ -7,6 +7,8 @@ import { useTranslation } from "react-i18next";
 import ReactPhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import logo from "../images/logowhite.png";
+import NProgress from 'nprogress';
+
 
 const RegistrationForm = () => {
   const { t, i18n } = useTranslation();
@@ -106,6 +108,7 @@ const RegistrationForm = () => {
   };
 
   const handleSubmit = async (e) => {
+    NProgress.start();
     e.preventDefault();
     const currentDate = new Date().toISOString().split("T")[0];
     const formDataToSubmit = {
@@ -131,6 +134,9 @@ const RegistrationForm = () => {
       navigate("/table");
     } catch (error) {
       console.error("error.message");
+    }
+    finally{
+      NProgress.done();
     }
   };
 
