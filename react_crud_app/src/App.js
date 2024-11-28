@@ -33,7 +33,7 @@ function App() {
         <Route path="/*" element={<Dashboard />} />
         <Route path="/update" element={<Update />} />
         <Route path="/about_us" element={<AboutUs />} />
-        <Route path="/register_user" element={<Navigate to="/dashboard" replace /> : <RegistrationForm />} />
+        <Route path="/register_user" element={isLoggedIn ? <Navigate to="/dashboard" replace /> : <RegistrationForm />} />
         <Route path="/login" element={<Dashboard />} />
 
         {/* Admin Access Route */}
