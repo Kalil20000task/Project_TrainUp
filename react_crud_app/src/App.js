@@ -11,6 +11,8 @@ import FetchUsers from './components/table/table';
 import SignUp from './components/postuser/signuppage';
 import Login from './components/postuser/loginpage';
 import ProtectedRoute from './components/protectedpages'; // Import the ProtectedRoute component
+import { useNavigate } from 'react-router-dom';
+
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
