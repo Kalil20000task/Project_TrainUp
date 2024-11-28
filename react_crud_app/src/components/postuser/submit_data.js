@@ -7,6 +7,8 @@ import { useTranslation } from "react-i18next";
 import ReactPhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import logo from "../images/logowhite.png";
+import NProgress from 'nprogress';
+
 
 const RegistrationForm = () => {
   const { t, i18n } = useTranslation();
@@ -116,6 +118,7 @@ const RegistrationForm = () => {
       course: formData.course.join(", "),
       date: currentDate,
     };
+    NProgress.start();
 
     try {
       const response = await fetch(
@@ -133,6 +136,9 @@ const RegistrationForm = () => {
       navigate("/table");
     } catch (error) {
       console.error("error.message");
+    }
+    finally{
+      NProgress.done();
     }
   };
 

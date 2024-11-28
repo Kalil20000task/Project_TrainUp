@@ -3,6 +3,8 @@ import { Form, Button, Container, Row, Col, Alert } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import logo from '../images/logowhite.png';
 import './login.css';
+import NProgress from 'nprogress';
+
 const Login = () => {
     const [formData, setFormData] = useState({
         username: '',
@@ -22,7 +24,7 @@ const Login = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         setError(null); // Reset error message on submit
-
+        NProgress.start();
         try {
             const response = await fetch("https://node-crud-app-fwr0.onrender.com/api/loginusers", {
                 method: "POST",
@@ -50,6 +52,9 @@ const Login = () => {
         } catch (error) {
             console.error("Login error:", error.message);
             setError('An error occurred. Please try again.');
+        }
+        finally{
+            NProgress.done();
         }
     };
 
