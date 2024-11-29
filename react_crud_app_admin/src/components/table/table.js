@@ -26,7 +26,7 @@ const FetchUsers = () => {
         if (!confirmDelete) return;
     
         try {
-            const response = await fetch(`https://node-crud-app-fwr0.onrender.com/api/api/deleteusers/${id}`, {
+            const response = await fetch(`https://node-crud-app-fwr0.onrender.com/api/deleteusers/${id}`, {
                 method: "DELETE",
             });
     
