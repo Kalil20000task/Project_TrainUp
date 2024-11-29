@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import { Container, Row, Col, Table } from "react-bootstrap";
+import { Container, Row, Col, Table, Button } from "react-bootstrap";
 import { useTranslation } from 'react-i18next';
 import logo from '../images/logowhite.png'; // Replace this with the correct path to your logo image
-import './table.css';
+// import './table.css';
 
 const FetchUsers = () => {
     const [users, setUsers] = useState([]);
@@ -21,6 +21,28 @@ const FetchUsers = () => {
 
         fetchUsers();
     }, []);
+    const handleDelete = async (id) => {
+        const confirmDelete = window.confirm("Are you sure you want to delete this user?");
+        if (!confirmDelete) return;
+    
+        try {
+            const response = await fetch(`https://node-crud-app-fwr0.onrender.com/api/api/deleteusers/${id}`, {
+                method: "DELETE",
+            });
+    
+            if (response.ok) {
+                setUsers(users.filter((user) => user._id !== id)); // Update state after successful deletion
+                alert("User deleted successfully!");
+            } else if (response.status === 404) {
+                alert("User not found!");
+            } else {
+                console.error("Failed to delete user");
+            }
+        } catch (error) {
+            console.error("Error while deleting user:", error.message);
+        }
+    };
+    
 
     return (
         <div className="cont">
@@ -45,6 +67,8 @@ const FetchUsers = () => {
                                 <th>Additional Courses</th>
                                 <th>learningMode</th>
                                 <th>Date</th>
+                                <th>Actions</th> {/* New column for actions */}
+
                             </tr>
                         </thead>
                         <tbody>
@@ -67,6 +91,19 @@ const FetchUsers = () => {
                                     <td>{user.additionalcourses}</td>
                                     <td>{user.learningMode}</td>
                                     <td>{user.date}</td>
+                                    <td>
+                                            <Button
+                                                variant="danger"
+                                                size="sm"
+                                                
+                                                onClick={() => {
+                                                    console.log(user); // Log the user object
+                                                    handleDelete(user._id); // Ensure _id is present
+                                                }}
+                                            >
+                                                Delete
+                                            </Button>
+                                    </td>
                                 </tr>
                             ))}
                         </tbody>
