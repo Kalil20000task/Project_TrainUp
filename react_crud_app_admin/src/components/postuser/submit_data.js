@@ -7,8 +7,6 @@ import { useTranslation } from "react-i18next";
 import ReactPhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import logo from "../images/logowhite.png";
-import NProgress from 'nprogress';
-
 
 const RegistrationForm = () => {
   const { t, i18n } = useTranslation();
@@ -23,15 +21,12 @@ const RegistrationForm = () => {
     date: { type: Date, default: Date.now },
   });
 
-  const navigate = useNavigate();
   const [countries, setCountries] = useState([]);
   const courses = [
-    
     { label: "Accounting theory", value: "Accounting theory" },
-     { label: "Accounting quick course", value: "Accounting quick course" },
-    
+    { label: "Accounting quick course", value: "Accounting quick course" },
     { label: "Digital Marketing", value: "Digital Marketing" },
-    { label: "Certified Nurse Assistant ", value: "Certified Nurse Assistant" },
+    { label: "Certified Nurse Assistant", value: "Certified Nurse Assistant" },
     { label: "Automechanics", value: "Automechanics" },
     { label: "English Language", value: "English Language" },
     { label: "French Language", value: "French Language" },
@@ -39,9 +34,7 @@ const RegistrationForm = () => {
     { label: "Computer Basics", value: "Computer Basics" },
     { label: "IT (Information Technology)", value: "IT (Information Technology)" },
     { label: "Business Administration", value: "Business Administration" },
-
-
-     { label: "Personal Development", value: "Personal Development" },
+    { label: "Personal Development", value: "Personal Development" },
     { label: "Marketing and sales", value: "Marketing and sales" },
     { label: "Report writing", value: "Report writing" },
     { label: "Project Management", value: "Project Management" },
@@ -51,10 +44,9 @@ const RegistrationForm = () => {
     { label: "Graphics and video editing", value: "Graphics and video editing" },
     { label: "Tally software", value: "Tally software" },
     { label: "QuickBooks software", value: "QuickBooks software" },
-
-       { label: "IELTS Preparatory course", value: "IELTS Preparatory course" },
-    { label: "Artificial Intelligence course", value: "Artificial Intelligence cours" },
-      { label: "Advance IT course", value: "Advance IT course" },
+    { label: "IELTS Preparatory course", value: "IELTS Preparatory course" },
+    { label: "Artificial Intelligence course", value: "Artificial Intelligence course" },
+    { label: "Advance IT course", value: "Advance IT course" },
     { label: "Microsoft Excel", value: "Microsoft Excel" },
   ];
 
@@ -103,12 +95,7 @@ const RegistrationForm = () => {
     }));
   };
 
-  const handleLanguageChange = (lang) => {
-    i18n.changeLanguage(lang);
-  };
-
   const handleSubmit = async (e) => {
-    NProgress.start();
     e.preventDefault();
     const currentDate = new Date().toISOString().split("T")[0];
     const formDataToSubmit = {
@@ -131,12 +118,19 @@ const RegistrationForm = () => {
       );
       const data = await response.json();
       console.log(data);
-      navigate("/table");
+      alert("User registered successfully!");
+      setFormData({
+        fullName: "",
+        whatsappNumber: "",
+        email: "",
+        country: "",
+        course: [],
+        additionalcourses: "",
+        learningMode: "",
+        date: { type: Date, default: Date.now },
+      });
     } catch (error) {
-      console.error("error.message");
-    }
-    finally{
-      NProgress.done();
+      console.error(error.message);
     }
   };
 
@@ -236,9 +230,8 @@ const RegistrationForm = () => {
                   )}
                   onChange={handleCourseChange}
                   className="text-dark"
-                  placeholder= {t("Select courses, You can select multiple courses")}
+                  placeholder={t("Select courses, You can select multiple courses")}
                   style={{ width: "100%", backgroundColor: "#e0f7fa" }}
-                 
                 />
               </Form.Group>
 
@@ -250,7 +243,6 @@ const RegistrationForm = () => {
                   name="additionalcourses"
                   value={formData.additionalcourses}
                   onChange={handleChange}
-                 
                   className="bg-lightblue text-dark"
                   style={{ width: "100%", backgroundColor: "#e0f7fa" }}
                 />
